@@ -1,5 +1,5 @@
 # Disphelper library
-disphelper_081
+disphelper_081/
 
 # Intermediate files from cl.exe
 *.obj
@@ -8,3 +8,6 @@ disphelper_081
 
 # main.exe
 main.exe
+
+# CST Sample File
+cst-sample/
