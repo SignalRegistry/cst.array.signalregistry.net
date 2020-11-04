@@ -5,3 +5,6 @@ disphelper_081
 *.obj
 *.pdb
 *.ilk
+
+# main.exe
+main.exe
