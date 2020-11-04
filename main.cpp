@@ -7,7 +7,7 @@ using namespace std;
 int main(void)
 {
 	CDhInitialize init;
-	CDispPtr cst, project;
+	CDispPtr cst, project, farFieldArray, farFieldPlot;
 	long nParameters;
 	double dParameter;
 
@@ -17,6 +17,8 @@ int main(void)
 	{
 		dhCheck(dhCreateObject(L"CSTStudio.Application", NULL, &cst));
 		dhCheck(dhGetValue(L"%o", &project, cst, L".Active3D()"));
+		dhCheck(dhGetValue(L"%o", &farFieldArray, project, L".FarFieldArray()"));
+		dhCheck(dhGetValue(L"%o", &farFieldPlot, project, L".FarfieldPlot()"));
 	}
 	catch (string errstr)
 	{
@@ -28,6 +30,22 @@ int main(void)
 
 	std::cout << nParameters << "\n";
 	std::cout << dParameter << "\n";
+
+	// FarField Array
+	dhCheck(dhCallMethod(farFieldArray, L".UseArray(%b)", true));
+
+	// Linear Array
+	// dhCheck(dhCallMethod(farFieldArray, L".Arraytype(%s)", "rectangular"));
+	// dhCheck(dhCallMethod(farFieldArray, L".XSet(%d,%e,%e)", 50, 10.0, 30.0));
+	// dhCheck(dhCallMethod(farFieldArray, L".SetList()"));
+	// dhCheck(dhCallMethod(farFieldPlot, L".ResetPlot()"));
+
+	// Rectangular Array
+	dhCheck(dhCallMethod(farFieldArray, L".Arraytype(%s)", "rectangular"));
+	dhCheck(dhCallMethod(farFieldArray, L".XSet(%d,%e,%e)", 50, 10.0, 30.0));
+	dhCheck(dhCallMethod(farFieldArray, L".YSet(%d,%e,%e)", 50, 10.0, 30.0));
+	dhCheck(dhCallMethod(farFieldArray, L".SetList()"));
+	dhCheck(dhCallMethod(farFieldPlot, L".ResetPlot()"));
 
 	try
 	{
