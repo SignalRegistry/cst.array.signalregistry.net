@@ -1,3 +1,7 @@
+# Disphelper library
+disphelper_081
+
+# Intermediate files from cl.exe
 *.obj
 *.pdb
 *.ilk

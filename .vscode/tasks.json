@@ -8,9 +8,12 @@
             "args": [
                 "/Zi",
                 "/EHsc",
+                "/Idisphelper_081\\single_file_source",
+                "main.cpp",
                 "/Fe:",
-                "${fileBasenameNoExtension}.exe",
-                "${file}",
+                "main.exe",
+                // "${fileBasenameNoExtension}.exe",
+                // "${file}",
                 "lib\\disphelper.lib",
                 "user32.lib"
             ],
